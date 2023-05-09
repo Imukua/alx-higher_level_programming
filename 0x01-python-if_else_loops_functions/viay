@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# check if a filename was provided
+if [ $# -eq 0 ]; then
+  echo "Usage: $0 <filename>"
+  exit 1
+fi
+
+# turn off caps lock
+xset -q | grep "Caps Lock:   on" && xdotool key Caps_Lock
+
+# open vi with the provided filename
+vi "$1"
+
+# turn off caps lock again
+xset -q | grep "Caps Lock:   on" && xdotool key Caps_Lock
+
