@@ -6,14 +6,10 @@ if [ $# -eq 0 ]; then
   exit 1
 fi
 
-# turn off caps lock
-xset -q | grep "Caps Lock:   on" && xdotool key Caps_Lock
 
 # open vi with the provided filename
 vi "+set nu" "$1"
 
-# turn off caps lock again
-xset -q | grep "Caps Lock:   on" && xdotool key Caps_Lock
 
 # ask if file should be checked using pycodestyle
 read -p "Do you want to check the file using pycodestyle? (y/n) " check
