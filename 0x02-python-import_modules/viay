@@ -32,3 +32,10 @@ if [ "$check" == "y" ] || [ "$check" == "Y" ]; then
   fi
 fi
 
+read -p "Do you want to check the file using pycodestyle? (y/n) " gitcheck
+if [ "$gitcheck" == "y" ] || [ "$gitcheck" == "Y" ]; then
+read -p "Enter commit message: " message
+git add .
+git commit -m "$message"
+git push
+fi
