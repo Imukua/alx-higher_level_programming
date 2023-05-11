@@ -20,8 +20,6 @@ def calculator():
     elif operator == "*":
         result = a * b
     elif operator == "/":
-        if b == 0:
-            sys.exit(1)
         result = a / b
     else:
         print("Unknown operator. Available operators: +, -, * and /")
