@@ -5,7 +5,7 @@ import sys
 
 def calculator():
     if (len(sys.argv) - 1) != 3:
-        print(r"Usage: ./100-my_calculator.py <a> <operator> <b>")
+        print("Usage: ./100-my_calculator.py <a> <operator> <b>")
         sys.exit(1)
 
     a = int(sys.argv[1])
@@ -21,11 +21,11 @@ def calculator():
         result = a * b
     elif operator == "/":
         if b == 0:
-            print("Error: divisin by zero")
             sys.exit(1)
         result = a / b
     else:
         print("Unknown operator. Available operators: +, -, * and /")
+        sys.exit(1)
 
     print("{} {} {} = {}".format(a, operator, b, result))
 
