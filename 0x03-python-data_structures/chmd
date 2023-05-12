@@ -1,0 +1,36 @@
+# check if a filename was provided
+if [ $# -eq 0 ]; then
+  # ask for filename
+  echo "Enter the name of the file to make executable:"
+  read filename
+
+  # check if file exists
+  if [ ! -f "$filename" ]; then
+    echo "File not found: $filename"
+    exit 1
+  fi
+
+  if [ $# -eq 1 ]; then
+    $filename = $1
+  fi
+else
+  filename=$1
+
+  # check if file exists
+  if [ ! -f "$filename" ]; then
+    echo "File not found: $filename"
+    exit 1
+  fi
+fi
+
+# check if file is already executable
+if [ -x "$filename" ]; then
+  echo "File is already executable: $filename"
+  exit 0
+fi
+
+# make file executable
+chmod +x "$filename"
+
+echo "File is now executable: $filename"
+

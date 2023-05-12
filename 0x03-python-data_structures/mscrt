@@ -1,0 +1,96 @@
+#!/bin/bash
+
+# prompt the user to choose which script to run
+echo "Choose an option:"
+echo "1. Git"
+echo "2. Vi"
+echo "3. Chmod"
+read -p "Enter your choice: " choice
+
+# run the selected script based on the user's choice
+case $choice in
+  1)
+    # Git script
+    read -p "Enter commit message: " message
+    git add .
+    git commit -m "$message"
+    git push
+    ;;
+  2)
+    # Vi script
+    # check if a filename was provided
+    if [ $# -eq 0 ]; then
+      echo "Usage: $0 <filename>"
+      exit 1
+    fi
+
+    # add a Python3 shebang to the file
+    echo "#!/usr/bin/python3" > "$1"
+
+    # open vi with the provided filename
+    vi "+set nu" "$1"
+
+    # ask if file should be made executable
+    read -p "Do you want to make the file executable? (y/n) " make_executable
+
+    if [ "$make_executable" == "y" ] || [ "$make_executable" == "Y" ]; then
+      # make the file executable
+      chmod +x "$1"
+      echo "File is now executable: $1"
+    fi
+
+    # ask if file should be checked using pycodestyle
+    read -p "Do you want to check the file using pycodestyle? (y/n) " check
+
+    if [ "$check" == "y" ] || [ "$check" == "Y" ]; then
+      # run pycodestyle
+      if ! pycodestyle "$1"; then
+        echo "pycodestyle check failed for file: $1"
+        exit 1
+      fi
+    fi
+    ;;
+  3)
+    # Chmod script
+    # check if a filename was provided
+    if [ $# -eq 0 ]; then
+      # ask for filename
+      echo "Enter the name of the file to make executable:"
+      read filename
+
+      # check if file exists
+      if [ ! -f "$filename" ]; then
+        echo "File not found: $filename"
+        exit 1
+      fi
+
+      if [ $# -eq 1 ]; then
+        $filename = $1
+      fi
+    else
+      filename=$1
+
+      # check if file exists
+      if [ ! -f "$filename" ]; then
+        echo "File not found: $filename"
+        exit 1
+      fi
+    fi
+
+    # check if file is already executable
+    if [ -x "$filename" ]; then
+      echo "File is already executable: $filename"
+      exit 0
+    fi
+
+    # make file executable
+    chmod +x "$filename"
+
+    echo "File is now executable: $filename" 
+    ;;
+  *)
+    echo "Invalid choice: $choice"
+    exit 1
+    ;;
+esac
+
