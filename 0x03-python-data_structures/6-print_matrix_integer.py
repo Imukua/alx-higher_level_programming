@@ -6,4 +6,4 @@ def print_matrix_integer(matrix=[[]]):
             if elem != row[-1]:
                 print(" ", end='')
 
-        print("$")
+        print("")
