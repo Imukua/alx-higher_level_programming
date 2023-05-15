@@ -1,34 +1,39 @@
 #include "lists.h"
 
 /**
- * is_palindrome - checks if a singly linked list is a palindrome
- * @head: double pointer to the head of the list
- * Return: 1 if the list is a palindrome, 0 otherwise
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     struct ListNode *next;
+ * };
  */
-int is_palindrome(listint_t **head)
-{
-    int i, j, len = 0;
-    int arr[10000];
-    listint_t *current;
 
-    if (*head == NULL || (*head)->next == NULL)
-        return (1);
-
-    current = *head;
-
-    while (current != NULL)
-    {
-        arr[len] = current->n;
-        current = current->next;
-        len++;
+int is_palindrome(struct ListNode** head) {
+    struct ListNode* slow = *head;
+    struct ListNode* fast = *head;
+    struct ListNode* prev = NULL;
+    struct ListNode* next = NULL;
+    
+    while (fast != NULL && fast->next != NULL) {
+        fast = fast->next->next;
+        next = slow->next;
+        slow->next = prev;
+        prev = slow;
+        slow = next;
     }
-
-    for (i = 0, j = len - 1; i <= j; i++, j--)
-    {
-        if (arr[i] != arr[j])
-            return (0);
+    
+    if (fast != NULL) {
+        slow = slow->next;
     }
-
-    return (1);
+    
+    while (slow != NULL) {
+        if (slow->val != prev->val) {
+            return 0;
+        }
+        slow = slow->next;
+        prev = prev->next;
+    }
+    
+    return 1;
 }
 
