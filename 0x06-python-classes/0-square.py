@@ -3,6 +3,7 @@
 
 """ Defines a square"""
 
+
 class Square:
     """Represent your square"""
     pass
