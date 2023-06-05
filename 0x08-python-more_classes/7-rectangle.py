@@ -21,6 +21,7 @@ class Rectangle:
                  width(int): Variable holding the rect width.
                  height(int): Var holding the rect height.
         """
+        type(self).number_of_instances += 1
         self.width = width
         self.height = height
 
@@ -67,7 +68,7 @@ class Rectangle:
             return('')
         rectangle = []
         for i in range(self.__height):
-            [rectangle.append('#') for j in range(self.__width)]
+            [rectangle.append(self.print_symbol) for j in range(self.__width)]
             if i != self.__height - 1:
                 rectangle.append("\n")
         return ("".join(rectangle))

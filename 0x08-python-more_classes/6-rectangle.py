@@ -19,6 +19,7 @@ class Rectangle:
                  width(int): Variable holding the rect width.
                  height(int): Var holding the rect height.
         """
+        type(self).number_of_instances += 1
         self.width = width
         self.height = height
 
