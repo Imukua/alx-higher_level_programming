@@ -65,7 +65,7 @@ class Rectangle:
         """ Returns a string repressentation of the rectangle """
 
         if self.__width == 0 or self.height == 0:
-            return('')
+            return ''
         rectangle = []
         for i in range(self.__height):
             [rectangle.append(self.print_symbol) for j in range(self.__width)]
