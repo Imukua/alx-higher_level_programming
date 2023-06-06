@@ -1,0 +1,28 @@
+# tests/3-say_my_name.txt
+
+# Import the function
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+
+# Test case 1: Print first name only
+    >>> say_my_name("John")
+    My name is John 
+
+# Test case 2: Print first and last name
+    >>> say_my_name("John", "Doe")
+    My name is John Doe
+
+# Test case 3: Print empty names
+    >>> say_my_name("", "")
+    My name is  
+
+# Test case 4: Print first name as integer
+    >>> say_my_name(123)
+    Traceback (most recent call last):
+        ...
+    TypeError: first_name must be a string
+
+# Test case 5: Print last name as boolean
+    >>> say_my_name("John", True)
+    Traceback (most recent call last):
+        ...
+    TypeError: last_name must be a string

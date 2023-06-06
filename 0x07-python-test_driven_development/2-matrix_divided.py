@@ -17,12 +17,12 @@ def matrix_divided(matrix, div):
 
     if (not isinstance(matrix, list) and
             not all(isinstance(row, list) for row in matrix)):
-        raise TypeError("matrix must be a matrix (list of lists)"
+        raise TypeError("matrix must be a matrix (list of lists) "
                         "of integers/floats")
 
     if not all(isinstance(elem, (int, float))
                for row in matrix for elem in row):
-        raise TypeError("matrix must be a matrix (list of lists)"
+        raise TypeError("matrix must be a matrix (list of lists) "
                         "of integers/floats")
 
     rowsizes = set(len(row) for row in matrix)

@@ -1,82 +1,78 @@
-0-matrix_divided.txt
+# tests/0-matrix_divided.txt
 
-===========================
-How to Use matrix_divided.py
-===========================
+# Import the function
+>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
 
-This module defines a function ``matrix_divided(matrix, div)`` that divides each element of a matrix by a given number.
+# Test case 1: Divide each element of a 2x2 matrix by 2
+>>> matrix = [[1, 2], [3, 4]]
+>>> div = 2
+>>> matrix_divided(matrix, div)
+[[0.5, 1.0], [1.5, 2.0]]
 
-Usage
-=====
+# Test case 2: Divide each element of a 3x3 matrix by 3.5
+>>> matrix = [[10, 20, 30], [40, 50, 60], [70, 80, 90]]
+>>> div = 3.5
+>>> matrix_divided(matrix, div)
+[[2.86, 5.71, 8.57], [11.43, 14.29, 17.14], [20.0, 22.86, 25.71]]
 
-Import the ``matrix_divided`` function from the module:
+# Test case 3: Divide each element of a 4x4 matrix by 0
+>>> matrix = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 16]]
+>>> div = 0
+>>> matrix_divided(matrix, div)
+Traceback (most recent call last):
+    ...
+ZeroDivisionError: division by zero
 
-::
+# Test case 4: Divide each element of a matrix by 2.5
+>>> matrix = [[0.6, 1.2, 2.4], [3.6, 4.8, 6.0]]
+>>> div = 2.5
+>>> matrix_divided(matrix, div)
+[[0.24, 0.48, 0.96], [1.44, 1.92, 2.4]]
 
-    >>> from matrix_divided import matrix_divided
+# Test case 5: Divide each element of an empty matrix by 2
+>>> matrix = []
+>>> div = 2
+>>> matrix_divided(matrix, div)
+[]
 
-Dividing a Matrix
-=================
+# Test case 6: Divide each element of a matrix by 0.5
+>>> matrix = [[-10, -20], [-30, -40]]
+>>> div = 0.5
+>>> matrix_divided(matrix, div)
+[[-20.0, -40.0], [-60.0, -80.0]]
 
-``matrix_divided(matrix, div)`` returns a new matrix with the rounded division results.
+# Test case 7: Divide each element of a matrix with non-integer/float values
+>>> matrix = [[1, 2, "3"], [4, 5, 6.0]]
+>>> div = 2
+>>> matrix_divided(matrix, div)
+Traceback (most recent call last):
+    ...
+TypeError: matrix must be a matrix (list of lists) of integers/floats
 
-::
+# Test case 8: Divide each element of a matrix with different row sizes
+>>> matrix = [[1, 2, 3], [4, 5], [6, 7, 8]]
+>>> div = 2
+>>> matrix_divided(matrix, div)
+Traceback (most recent call last):
+    ...
+TypeError: Each row of the matrix must have the same size
 
-    >>> matrix_divided([[1, 2, 3], [4, 5, 6]], 2)
-    [[0.5, 1.0, 1.5], [2.0, 2.5, 3.0]]
+# Test case 9: Divide each element of a matrix with non-integer/float div
+>>> matrix = [[1, 2], [3, 4]]
+>>> div = "2"
+>>> matrix_divided(matrix, div)
+Traceback (most recent call last):
+    ...
+TypeError: div must be a number
 
-Dividing by 0
-=============
+# Test case 10: Divide each element of a matrix by infinity
+>>> matrix = [[1, 2], [3, 4]]
+>>> div = float('inf')
+>>> matrix_divided(matrix, div)
+[[0.0, 0.0], [0.0, 0.0]]
 
-When dividing by 0, a ``ZeroDivisionError`` is raised:
-
-::
-
-    >>> matrix_divided([[1, 2, 3], [4, 5, 6]], 0)
-    Traceback (most recent call last):
-    ZeroDivisionError: division by zero
-
-Invalid Matrix
-==============
-
-If the matrix is not a list of lists of integers or floats, a ``TypeError`` is raised:
-
-::
-
-    >>> matrix_divided([1, 2, 3], 2)
-    Traceback (most recent call last):
-    TypeError: matrix must be a matrix (list of lists) of integers/floats
-
-::
-
-    >>> matrix_divided([[1, 2, 3], [4, "5", 6]], 2)
-    Traceback (most recent call last):
-    TypeError: matrix must be a matrix (list of lists) of integers/floats
-
-Inconsistent Row Sizes
-======================
-
-If the rows of the matrix have different sizes, a ``TypeError`` is raised:
-
-::
-
-    >>> matrix_divided([[1, 2, 3], [4, 5]], 2)
-    Traceback (most recent call last):
-    TypeError: Each row of the matrix must have the same size
-
-Invalid Divisor
-===============
-
-If the divisor is not a number (integer or float), a ``TypeError`` is raised:
-
-::
-
-    >>> matrix_divided([[1, 2, 3], [4, 5, 6]], "2")
-    Traceback (most recent call last):
-    TypeError: div must be a number
-
-::
-
-    >>> matrix_divided([[1, 2, 3], [4, 5, 6]], None)
-    Traceback (most recent call last):
-    TypeError: div must be a number
+# Test case 11: Divide each element of a matrix by NaN
+>>> matrix = [[1, 2], [3, 4]]
+>>> div = float('nan')
+>>> matrix_divided(matrix, div)
+[[nan, nan], [nan, nan]]
