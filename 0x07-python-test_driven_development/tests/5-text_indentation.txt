@@ -1,0 +1,36 @@
+# tests/0-text_indentation.txt
+
+# Import the function
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+# Test case 1: Text with '.' character
+    >>> text_indentation("This is a sentence.")
+    This is a sentence.
+    <BLANKLINE>
+
+# Test case 2: Text with ':' character
+    >>> text_indentation("This is a sentence:")
+    This is a sentence:
+    <BLANKLINE>
+
+# Test case 3: Text with '?' character
+    >>> text_indentation("This is a sentence?")
+    This is a sentence?
+    <BLANKLINE>
+
+# Test case 4: Text with multiple characters
+    >>> text_indentation("This is a sentence. Another sentence: And a question? Final sentence.")
+    This is a sentence.
+    <BLANKLINE>
+    Another sentence:
+    <BLANKLINE>
+    And a question?
+    <BLANKLINE>
+    Final sentence.
+    <BLANKLINE>
+
+# Test case 5: Text as integer
+    >>> text_indentation(123)
+    Traceback (most recent call last):
+        ...
+    TypeError: text must be a string

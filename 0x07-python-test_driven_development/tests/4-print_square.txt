@@ -1,0 +1,33 @@
+# tests/0-print_square.txt
+
+# Import the function
+    >>> print_square = __import__('4-print_square').print_square
+
+# Test case 1: Print square of size 3
+    >>> print_square(3)
+    ###
+    ###
+    ###
+
+# Test case 2: Print square of size 5
+    >>> print_square(5)
+    #####
+    #####
+    #####
+    #####
+    #####
+
+# Test case 3: Print square of size 0
+    >>> print_square(0)
+
+# Test case 4: Print square of size -2
+    >>> print_square(-2)
+    Traceback (most recent call last):
+        ...
+    ValueError: size must be >= 0
+
+# Test case 5: Print square of size 3.5
+    >>> print_square(3.5)
+    Traceback (most recent call last):
+        ...
+    TypeError: size must be an integer
