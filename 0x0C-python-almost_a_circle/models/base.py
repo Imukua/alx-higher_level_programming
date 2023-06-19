@@ -92,10 +92,11 @@ class Base:
 
     @classmethod
     def save_to_file_csv(cls, list_objs):
-        """Serialize instances to CSV format and save to file.
-           Args:
-                :: list_objs: list of instances"""
+        """Write the CSV serialization of a list of objects to a file.
 
+        Args:
+            list_objs (list): A list of inherited Base instances.
+        """
         filename = cls.__name__ + ".csv"
         with open(filename, "w", newline="") as csvfile:
             if list_objs is None or list_objs == []:
