@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """Defines a Square  class"""
-
 from models.rectangle import Rectangle
 
 
@@ -20,10 +19,12 @@ class Square(Rectangle):
     @property
     def size(self):
         """Gets the value of size"""
-        return self.__width
+
+        return self.width
 
     @size.setter
     def size(self, value):
+        """Sets the value for size"""
         if type(value) is not int:
             raise TypeError("width must be an integer")
         if value <= 0:
@@ -33,6 +34,7 @@ class Square(Rectangle):
 
     def update(self, *args, **kwargs):
         """Updates attributes of an instance"""
+
         if args is not None and len(args) != 0:
             if len(args) >= 1:
                 if type(args[0]) != int and args[0] is not None:
@@ -59,6 +61,7 @@ class Square(Rectangle):
 
     def to_dictionary(self):
         """Returns a dictionary rep of the Square object instance"""
+
         return {
             "id": self.id,
             "size": self.width,
