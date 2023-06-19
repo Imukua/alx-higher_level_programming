@@ -51,7 +51,7 @@ class Square(Rectangle):
                         self.x = args[2]
                         if len(args) >= 4:
                             self.y = args[3]
-          
+
         elif kwargs and len(kwargs) != 0:
             for key, value in kwargs.items():
                 if key == "id":
@@ -70,7 +70,7 @@ class Square(Rectangle):
     def to_dictionary(self):
         """Returns a dictionary rep of the Square object instance"""
 
-        return{
+        return {
             "id": self.id,
             "size": self.width,
             "x": self.x,
@@ -81,6 +81,6 @@ class Square(Rectangle):
         """Returns the str representation of the square"""
 
         return '[Square] ({}) {}/{} - {}'.format(self.id,
-                                               self.x,
-                                               self.y,
-                                               self.width)
+                                                 self.x,
+                                                 self.y,
+                                                 self.width)
