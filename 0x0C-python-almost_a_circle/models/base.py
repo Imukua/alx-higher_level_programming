@@ -112,24 +112,37 @@ class Base:
 
     @staticmethod
     def draw(list_rectangles, list_squares):
-        """Draw rectangles and squares using Turtle graphics module."""
+        """Opens a window and draws all the Rectangles and Squares"""
         window = turtle.Screen()
+        window.title("Shapes")
         window.bgcolor("white")
+
         pen = turtle.Turtle()
         pen.speed(2)
 
-        def draw_shape(shape, color):
-            pen.color(color)
-            pen.begin_fill()
-            for _ in range(4):
-                pen.forward(shape.width)
-                pen.right(90)
-            pen.end_fill()
-
+        # Draw Rectangles
         for rectangle in list_rectangles:
-            draw_shape(rectangle, "red")
+            pen.penup()
+            pen.goto(rectangle.x, rectangle.y)
+            pen.pendown()
+            pen.color("blue")
+            pen.forward(rectangle.width)
+            pen.right(90)
+            pen.forward(rectangle.height)
+            pen.right(90)
+            pen.forward(rectangle.width)
+            pen.right(90)
+            pen.forward(rectangle.height)
+            pen.right(90)
 
+        # Draw Squares
         for square in list_squares:
-            draw_shape(square, "blue")
+            pen.penup()
+            pen.goto(square.x, square.y)
+            pen.pendown()
+            pen.color("red")
+            for _ in range(4):
+                pen.forward(square.size)
+                pen.right(90)
 
         turtle.done()
