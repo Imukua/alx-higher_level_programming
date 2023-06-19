@@ -147,7 +147,7 @@ class Rectangle(Base):
                 "width": self.width,
                 "height": self.height,
                 "x": self.x,
-                "y": self.y }
+                "y": self.y}
 
     def __str__(self):
         return '[Rectangle] ({}) {}/{} - {}/{}'.format(self.id,
