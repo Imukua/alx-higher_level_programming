@@ -15,12 +15,14 @@ class Square(Rectangle):
                 :: id(int): idenntity of new square
         """
         super().__init__(size, size, x, y, id)
+        self.size = size
+        self.id = id
 
     @property
     def size(self):
         """Gets the size of the square width/length"""
 
-        return self.width
+        return self.__width
 
     @size.setter
     def size(self, value):
@@ -30,8 +32,8 @@ class Square(Rectangle):
             raise TypeError("width must be an interger")
         if value <= 0:
             raise ValueError("width must be > 0")
-        self.width = value
-        self.height = value
+        self.__width = value
+        self.__height = value
 
     def update(self, *args, **kwargs):
         """Updates the Square attribute using provided aargument
