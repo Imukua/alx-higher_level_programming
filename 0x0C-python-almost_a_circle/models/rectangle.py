@@ -7,13 +7,13 @@ from models.base import Base
 class Rectangle(Base):
     """Defines a class Rectangle inhering from class Base
             Args:
-                :: width(int): width of the rectangle
-                :: heigth(int): height of the rectangle
-                :: x: x
-                :: y: y
+                :1: width(int): width of the rectangle
+                :2: heigth(int): height of the rectangle
+                :3: x: x
+                :4: y: y
             Raises:
-                :: TypeError: if x, y, width, height are not intergers
-                :: ValueError: if x, y, width. height are not greater than 0
+                :1: TypeError: if x, y, width or height are not intergers
+                :2: ValueError: if x, y, width or height are not greater than 0
     """
 
     def __init__(self, width, height, x=0, y=0, id=None):
@@ -25,7 +25,7 @@ class Rectangle(Base):
 
     @property
     def width(self):
-        """Set/get the width of the Rectangle."""
+        """Get the width of the Rectangle."""
         return self.__width
 
     @width.setter
@@ -38,7 +38,7 @@ class Rectangle(Base):
 
     @property
     def height(self):
-        """Set/get the height of the Rectangle."""
+        """Set the height of the Rectangle."""
         return self.__height
 
     @height.setter
@@ -51,7 +51,7 @@ class Rectangle(Base):
 
     @property
     def x(self):
-        """Set/get the x coordinate of the Rectangle."""
+        """Get the x coordinate of the Rectangle."""
         return self.__x
 
     @x.setter
@@ -64,7 +64,7 @@ class Rectangle(Base):
 
     @property
     def y(self):
-        """Set/get the y coordinate of the Rectangle."""
+        """Set the y coordinate of the Rectangle."""
         return self.__y
 
     @y.setter
