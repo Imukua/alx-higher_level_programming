@@ -95,13 +95,19 @@ class Base:
         """Serialize instances to CSV format and save to file.
            Args:
                 :: list_objs: list of instances"""
+
         filename = cls.__name__ + ".csv"
         with open(filename, "w", newline="") as csvfile:
-            writer = csv.writer(csvfile)
-            if list_objs is not None:
+            if list_objs is None or list_objs == []:
+                csvfile.write("[]")
+            else:
+                if cls.__name__ == "Rectangle":
+                    fieldnames = ["id", "width", "height", "x", "y"]
+                else:
+                    fieldnames = ["id", "size", "x", "y"]
+                writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
                 for obj in list_objs:
-                    writer.writerow(obj.to_csv_row())
-    import turtle
+                    writer.writerow(obj.to_dictionary())
 
     @staticmethod
     def draw(list_rectangles, list_squares):
