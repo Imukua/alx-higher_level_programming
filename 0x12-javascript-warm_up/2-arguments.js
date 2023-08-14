@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/node
 numArguments = process.argv.length - 2
 
 if (numArguments < 1){
