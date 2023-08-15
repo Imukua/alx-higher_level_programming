@@ -2,13 +2,12 @@
 
 class Square extends require('./5-square.js') {
   charPrint (c) {
-    let printChar = c;
     if (c === undefined) {
-      printChar = 'X';
+      c = 'X';
     }
 
     for (let i = 0; i < this.size; i++) {
-      console.log(printChar.repeat(this.size));
+      console.log(c.repeat(this.size));
     }
   }
 }
