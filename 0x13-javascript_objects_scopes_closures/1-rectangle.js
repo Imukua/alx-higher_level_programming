@@ -1,13 +1,13 @@
 #!/usr/bin/node
 
 class Rectangle {
-    width;
-    height;
+  width;
+  height;
 
-    constructor(w, h) {
-        this.height = h;
-        this.width = w;
-    }
+  constructor(w, h) {
+    this.height = h;
+    this.width = w;
+  }
 }
 
 module.exports = Rectangle;
