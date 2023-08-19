@@ -14,6 +14,7 @@ if __name__ == '__main__':
     query = 'SELECT * \
                FROM `states` \
               WHERE BINARY `name` = "{}"'.format(sys.argv[4])
+    cur = db.execute(query)
     stateList = [row[0] for row in cur.fetchall()]
     for state in stateList:
         print(state)
