@@ -1,5 +1,7 @@
 #!ussr/bin/python3
-
+"""
+Querry using MySQLdb
+"""
 import sys
 import MySQLdb
 
