@@ -9,14 +9,15 @@ if __name__ == '__main__':
     import MySQLdb
 
     db = MySQLdb.connect(user=sys.argv[2],
-                         passwd=sys.argv[2],
+                         password=sys.argv[2],
                          db=sys.argv[3],
                          port=3306,
                          host='localhost')
     cur = db.cursor()
-    query = 'SELECT * \
-               FROM `states` \
-              WHERE BINARY `name` = "{}"'.format(sys.argv[4])
+    query = '''SELECT *
+               FROM `states
+               WHERE BINARY `name` = "{}"'.format(sys.argv[4])
+            '''
     cur = db.execute(query)
     stateList = cur.fetchall()
     for state in stateList:
