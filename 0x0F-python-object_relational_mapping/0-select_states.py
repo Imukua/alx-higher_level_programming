@@ -1,9 +1,13 @@
 #!/usr/bin/python3
-
-import MySQLdb
-import sys
+"""
+Script that connects  connects to a Mysql db and queries all stats
+"""
 
 if __name__ == '__main__':
+    
+    import MySQLdb
+    import sys
+
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
