@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+    Query using SQL alchemy
+"""
 
 import sys
 from sqlalchemy import create_engine
@@ -8,7 +11,6 @@ from model_state import State
 if __name__ == "__main__":
     """
     Query using SQL alchemy
-
     """
 
     engine = create_engine("mysql+mysqldb://{}:{}@localhost/{}"
