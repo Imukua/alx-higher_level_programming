@@ -15,15 +15,12 @@ if __name__ == '__main__':
                          host='localhost')
     cur = db.cursor()
 
-    cur = db.execute(
-        """
-        SELECT * FROM states  WHERE name = '{}'
-        ORDER BY states.id ASC
-        """.format(sys.argv[4])
-    )
-    stateList = cur.fetchall()
-    for state in stateList:
-        print(state)
+    cur.execute("SELECT * FROM states WHERE name LIKE\
+    '{:s}' ORDER BY id ASC".format(sys.argv[4]))
+
+    for state in cur.fetchall():
+        if state[1] == sys.argv[4]:
+            print(state)
 
     cur.close()
     db.clode()
