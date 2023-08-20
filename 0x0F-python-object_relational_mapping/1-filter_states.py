@@ -13,6 +13,9 @@ if __name__ == '__main__':
     query = 'SELECT * FROM `states` WHERE name LIKE (N%) ORDER BY `id`'
     cur = db.cursor()
     cur.execute(query)
-    stateList = [row[0] for row in cur.fetchall()]
+    stateList = cur.fetchall()
     for state in stateList:
         print(state)
+
+    cur.close()
+    db.close()

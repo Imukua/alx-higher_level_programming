@@ -16,7 +16,6 @@ if __name__ == '__main__':
                 INNER JOIN `states` as `s` \
                     ON `c`.`id` = `s`.`id` \
                 ORDER BY `c`.`id`'
-                    
 
     cur = db.execute(query)
     cityList = [row[0] for row in cur.fetchall()]
