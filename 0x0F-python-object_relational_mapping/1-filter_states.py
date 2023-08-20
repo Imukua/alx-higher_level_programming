@@ -3,29 +3,32 @@
 Script that connects  connects to a Mysql db and queries all stats
 """
 
-if __name__ == '__main__':
+if __name__ == "__main__":
 
     import MySQLdb
-    import sys
+    from sys import argv
 
     db = MySQLdb.connect(
-        user=sys.argv[1],
-        password=sys.argv[2],
-        db=sys.argv[3],
-        port=3306,
-        host='localhost'
+        host='localhost',
+        user=argv[1],
+        password=argv[2],
+        db=argv[3],
+        port=3306
     )
 
-    query = """
-        SELECT * 
-        FROM states
-        WHERE name LIKE BINARY 'N%'ORDER BY states.id ASC
-    """
     cur = db.cursor()
-    cur.execute(query)
-    stateList = cur.fetchall()
-    for state in stateList:
-        print(state)
+
+    cur.execute(
+        """
+        SELECT * FROM states  WHERE name LIKE BINARY '{}'
+        ORDER BY states.id ASC
+        """.format(argv[4])
+    )
+
+    rows = cur.fetchall()
+
+    for row in rows:
+        print(row)
 
     cur.close()
-    db.clode()
+    db.close()
