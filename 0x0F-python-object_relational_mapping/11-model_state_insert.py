@@ -16,3 +16,4 @@ if __name__ == "__main__":
     session.add(lsn)
     session.commit()
     print(lsn.id)
+    session.close()
