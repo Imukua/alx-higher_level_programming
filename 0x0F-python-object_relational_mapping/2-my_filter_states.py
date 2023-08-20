@@ -17,7 +17,7 @@ if __name__ == '__main__':
 
     cur = db.execute(
         """
-        SELECT * FROM states  WHERE name LIKE BINARY '{}'
+        SELECT * FROM states  WHERE name = '{}'
         ORDER BY states.id ASC
         """.format(sys.argv[4])
     )
