@@ -11,11 +11,10 @@ if __name__ == "__main__":
                          database=argv[3]
                          )
     cur = db.cursor()
-    cur.execute("SELECT cities.name FROM cities\
-                 INNER JOIN states\
-                    ON cities.state_id = states.id\
-                 WHERE states.name LIKE %(state_name)s\
-                 ORDER BY cities.id ASC", {'state_name': argv[4]})
+    cur.execute("SELECT cities.name FROM cities INNER JOIN states ON\
+    cities.state_id = states.id WHERE states.name LIKE %(state_name)s\
+    ORDER BY cities.id ASC", {'state_name': argv[4]})
+
     cities = cur.fetchall()
 
     print(', '.join(row[0] for row in cities))
