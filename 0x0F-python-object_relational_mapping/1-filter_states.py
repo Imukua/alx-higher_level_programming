@@ -3,9 +3,6 @@
 Script that connects  connects to a Mysql db and queries
 """
 
-import sys
-import MySQLdb
-
 
 if __name__ == '__main__':
     import sys
@@ -16,7 +13,12 @@ if __name__ == '__main__':
                          db=sys.argv[3],
                          port=3306,
                          host='localhost')
-    query = 'SELECT * FROM states WHERE name LIKE (N%) ORDER BY states.id'
+    query = '''
+        SELECT * 
+        FROM states 
+        WHERE name LIKE "N%" 
+        ORDER BY id ASC
+    '''
     cur = db.cursor()
     cur.execute(query)
     stateList = cur.fetchall()
@@ -24,3 +26,4 @@ if __name__ == '__main__':
         print(state)
 
     cur.close()
+    db.clode()
