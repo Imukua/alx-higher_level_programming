@@ -17,9 +17,9 @@ if __name__ == '__main__':
     )
 
     query = '''
-        SELECT *
-        FROM states
-        WHERE name LIKE BINARY "N%"
+        SELECT * \
+        FROM states \
+        WHERE name LIKE BINARY "N%" \
         ORDER BY states.id ASC
     '''
     cur = db.cursor()
