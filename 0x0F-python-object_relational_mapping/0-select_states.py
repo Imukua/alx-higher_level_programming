@@ -4,7 +4,7 @@ Script that connects  connects to a Mysql db and queries all stats
 """
 
 if __name__ == '__main__':
-    
+
     import MySQLdb
     import sys
 
