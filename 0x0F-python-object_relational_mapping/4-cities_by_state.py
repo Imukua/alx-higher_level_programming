@@ -1,23 +1,27 @@
 #!ussr/bin/python3
 
-import sys
-import MySQLdb
-
 
 if __name__ == '__main__':
+    import sys
+    import MySQLdb
+
     db = MySQLdb.connect(username=sys.argv[1],
                          password=sys.argv[2],
                          db=sys.argv[3],
                          host='localhost',
                          port=3306)
     cur = db.cursor()
-    query = 'SELECT `c`.`id`, `c`.`name`,`s`.`name` \
-                FROM `cities` as `c` \
-                INNER JOIN `states` as `s` \
-                    ON `c`.`id` = `s`.`id` \
-                ORDER BY `c`.`id`'
 
-    cur = db.execute(query)
-    cityList = [row[0] for row in cur.fetchall()]
+    cur = db.execute(
+        """SELECT cities.id, cities.name, states.name
+        FROM cities
+        JOIN states
+        ON states.id = cities.state_id
+        ORDER BY cities.id"""
+    )
+    cityList = cur.fetchall()
     for city in cityList:
         print(city)
+
+    cur.close()
+    db.close()
