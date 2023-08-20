@@ -14,12 +14,13 @@ if __name__ == '__main__':
                          port=3306,
                          host='localhost')
     cur = db.cursor()
-    query = '''SELECT *
-               FROM `states
-               WHERE BINARY `name` = "{}"
-               ORDER BY states,id ASC
-               '''.format(sys.argv[4])
-    cur = db.execute(query)
+
+    cur = db.execute(
+        """
+        SELECT * FROM states  WHERE name LIKE BINARY '{}'
+        ORDER BY states.id ASC
+        """.format(sys.argv[4])
+    )
     stateList = cur.fetchall()
     for state in stateList:
         print(state)
