@@ -11,9 +11,11 @@ if __name__ == '__main__':
                          host='localhost',
                          port=3306)
     cur = db.cursor()
-    query = 'SELECT * FROM `states`'
+    query = "SELECT * FROM states  WHERE name=%s ORDER BY id", (sys.argv[4], )
     cur = db.execute(query)
-    stateList = [row[0] for row in cur.fetchall()]
+    stateList = cur.fetchall()
     for state in stateList:
-        if state[1] == sys.argv[1]:
-            print(state)
+        print(state)
+
+    cur.close()
+    db.close()
