@@ -16,12 +16,11 @@ if __name__ == '__main__':
         host='localhost'
     )
 
-    query = '''
-        SELECT * \
-        FROM states \
-        WHERE name LIKE BINARY "N%" \
-        ORDER BY states.id ASC
-    '''
+    query = """
+        SELECT * 
+        FROM states
+        WHERE name LIKE BINARY 'N%'ORDER BY states.id ASC
+    """
     cur = db.cursor()
     cur.execute(query)
     stateList = cur.fetchall()
