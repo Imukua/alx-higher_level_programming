@@ -1,4 +1,4 @@
-#!/usr/bin/envv bash
+#!/bin/bash
 #Script to send request to given url and displa the
 #+bodyy size of the response
 
