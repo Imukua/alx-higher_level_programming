@@ -8,6 +8,7 @@ Usage: ./list_commits.py <repository_name> <owner_name>
 import sys
 import requests
 
+
 if __name__ == "__main__":
     # Get the repository name and owner name from command-line arguments
     repository_name = sys.argv[1]
