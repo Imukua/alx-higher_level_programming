@@ -15,7 +15,8 @@ if __name__ == "__main__":
     owner_name = sys.argv[2]
 
     # Define the GitHub API URL for listing commits
-    api_url = f"https://api.github.com/repos/{owner_name}/{repository_name}/commits"
+    api_url = f"https://api.github.com/repos/{owner_name}/"
+    "{repository_name}/commits"
 
     try:
         # Send a GET request to the GitHub API
