@@ -7,10 +7,10 @@ import requests
 
 if __name__ == "__main__":
     url = "https://alx-intranet.hbtn.io/status"
-    
+ 
     try:
         response = requests.get(url)
-        response.raise_for_status()  # Raise an error for HTTP status codes >= 400
+        response.raise_for_status()
 
         print("Body response:")
         print("\t- type:", type(response.text))
