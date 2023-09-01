@@ -16,7 +16,7 @@ if __name__ == "__main__":
 
     # Define the GitHub API URL for listing commits
     api_url = f"https://api.github.com/repos/{owner_name}/"\
-    f"{repository_name}/commits"
+              f"{repository_name}/commits"
 
     try:
         # Send a GET request to the GitHub API
