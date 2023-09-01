@@ -1,12 +1,8 @@
 #!/usr/bin/python3
-# This script sends a request to a URL and displays the value of the X-Request-Id header.
+# This script sends a request to a URL.
 
 import urllib.request
 import sys
-
-
-import sys
-import urllib.request
 
 
 if __name__ == "__main__":
