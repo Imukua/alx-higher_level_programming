@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-Sends a request to a given URL and displays the value of the X-Request-Id header.
+Sends a request to a given URL and displays the value of the
+X-Request-Id header.
 """
 
 import sys
