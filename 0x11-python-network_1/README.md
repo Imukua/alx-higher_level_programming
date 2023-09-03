@@ -124,4 +124,3 @@ Usage:
 $ ./100-github_commits.py repository_name owner_name
 ```
 
-Please note the rate limits for unauthenticated requests when using the GitHub API.
