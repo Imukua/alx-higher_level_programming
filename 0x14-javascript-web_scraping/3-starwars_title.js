@@ -1,7 +1,7 @@
 #!/usr/bin/node
-// Load request module
 const request = require('request');
-// get request
-request.get(process.argv[2]).on('response', function (response) {
-  console.log(`code: ${response.statusCode}`);
+// set url
+let urls = 'http://swapi.co/api/films/' + process.argv[2];
+request(urls, function (error, response, body) {
+  console.log(error || JSON.parse(body).title);
 });
